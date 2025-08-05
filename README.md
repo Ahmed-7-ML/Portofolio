@@ -5,7 +5,7 @@ Welcome to my **Personal Portfolio Website** showcasing my projects, certificati
 This portfolio is built using **HTML & CSS**, designed to be **clean, professional, and ATS-friendly**, reflecting the same structure as my resume.
 
 ## 🚀 Live Demo
-[Visit My Portfolio](https://Ahmed-7-ML.github.io/Portfolio/)
+[Visit My Portfolio](https://ahmed-7-ml.github.io/Portofolio/)
 
 ---
 
