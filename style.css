@@ -12,6 +12,31 @@ header {
     text-align: center;
     padding: 30px 10px;
 }
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 60px; /* حجم اللوجو */
+    height: 60px;
+    border-radius: 50%; /* يخليه دائري */
+    object-fit: cover; /* يخلي الصورة كاملة */
+    border: 2px solid white;
+}
+
+.header-text {
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: white;
+    padding: 20px 10px;
+}
+
 
 /* About Me */
 section {
