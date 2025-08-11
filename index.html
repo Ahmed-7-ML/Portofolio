@@ -4,157 +4,381 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Akram Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #about {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tab-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .tab-content {
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card h3 {
+            padding: 10px;
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .skills-section {
+            margin-bottom: 30px;
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .skill span {
+            flex: 1;
+        }
+
+        .progress {
+            flex: 2;
+            background-color: #ddd;
+            border-radius: 5px;
+            height: 10px;
+            margin-left: 10px;
+        }
+
+        .progress div {
+            background-color: #007bff;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .project, .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .project h3, .experience-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .project a, .experience-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .project a:hover, .experience-item a:hover {
+            text-decoration: underline;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <div class="header-container">
-        <img src="Images/Title.png" alt="My Logo" class="logo">
-        <div class="header-text">
-            <h1>Ahmed Akram Amer</h1>
-            <p>Machine Learning Engineer</p>
-        </div>
-    </div>
+<header class="fade-in">
+    <h1>Ahmed Akram Amer</h1>
+    <p>Machine Learning Engineer</p>
 </header>
 
-
-<!-- About Me -->
-<section id="about">
+<section id="about" class="fade-in">
     <h2>About Me</h2>
-    <p>
-        Aspiring Machine Learning Engineer with hands-on experience in Python, SQL, and machine learning frameworks.
-        Skilled in supervised and unsupervised learning, EDA, model deployment, and data visualization.
-        Proven ability to deliver impactful ML projects with quantifiable results.
-    </p>
+    <p>Aspiring Machine Learning Engineer with hands-on experience in Python, SQL, and machine learning frameworks. Skilled in supervised and unsupervised learning, EDA, model deployment, and data visualization. Proven ability to deliver impactful ML projects with quantifiable results.</p>
 </section>
 
-<!-- Tabs Navigation -->
-<div class="tabs">
-    <button class="tab-btn active" onclick="openTab(event, 'certificates')">Certificates</button>
-    <button class="tab-btn" onclick="openTab(event, 'skills')">Skills</button>
-    <button class="tab-btn" onclick="openTab(event, 'projects')">Projects</button>
-    <button class="tab-btn" onclick="openTab(event, 'experience')">Experience</button>
-</div>
+<section id="tabs" class="fade-in">
+    <div class="tab-buttons">
+        <button onclick="openTab('certificates')">Certificates</button>
+        <button onclick="openTab('skills')">Skills</button>
+        <button onclick="openTab('projects')">Projects</button>
+        <button onclick="openTab('experience')">Experience</button>
+    </div>
 
-<!-- Certificates Tab -->
-<div id="certificates" class="tab-content active">
-    <h2>Certificates</h2>
-    <div class="cards-container">
-        <div class="card" onclick="openImage('Images/HCIA- Course.jpg')">
-            <img src="Images/HCIA- Course.jpg" alt="HCIA AI">
-            <h3>HCIA-AI</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/HCIA-Exam.png')">
-            <img src="Images/HCIA-Exam.png" alt="HCIA AI Exam">
-            <h3>HCIA-AI Exam</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/ML Specialization.png')">
-            <img src="Images/ML Specialization.png" alt="Machine Learning Specialization">
-            <h3>Machine Learning Specialization</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/AI Engineer.png')">
-            <img src="Images/AI Engineer.png" alt="AI Engineer For Data Scientists Associate">
-            <h3>AI Engineer For Data Scientists Associate</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/applied-dl.png')">
-            <img src="Images/applied-dl.png" alt="Applied Deep Learning From Maharah Tech">
-            <h3>Applied Deep Learning From Maharah Tech</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/ITI AI & Machine Learning.jpg')">
-            <img src="Images/ITI AI & Machine Learning.jpg" alt="ITI AI & Machine Learning">
-            <h3>ITI AI & Machine Learning</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/db.png')">
-            <img src="Images/db.png" alt="Database Fundamentals">
-            <h3>Database Fundamentals</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/forage.png')">
-            <img src="Images/forage.png" alt="British Airways Job Simulation">
-            <h3>British Airways Job Simulation</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/oracle-ai.png')">
-            <img src="Images/oracle-ai.png" alt="Oracle AI Certification">
-            <h3>Oracle AI Certification</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/sprints.png')">
-            <img src="Images/sprints.png" alt="Sprints AI Camp">
-            <h3>Sprints AI Camp</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/sql-intermediate.png')">
-            <img src="Images/sql-intermediate.png" alt="SQL Intermediate">
-            <h3>SQL Intermediate</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/python-ibm.png')">
-            <img src="Images/python-ibm.png" alt="Python IBM">
-            <h3>Python for AI & Data Science</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/python-ibm-badge.png')">
-            <img src="Images/python-ibm-badge.png" alt="Python Badge">
-            <h3>Python Badge</h3>
-        </div>
-        <div class="card" onclick="openImage('Images/python.png')">
-            <img src="Images/python.png" alt="Python Hackerrank">
-            <h3>Python Problem Solving</h3>
+    <div id="certificates" class="tab-content active">
+        <h2>Certificates</h2>
+        <div class="grid">
+            <div class="card" onclick="openImage('Images/HCIA- Course.jpg')">
+                <img src="Images/HCIA- Course.jpg" alt="HCIA AI">
+                <h3>HCIA-AI</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/HCIA-Exam.png')">
+                <img src="Images/HCIA-Exam.png" alt="HCIA- Exam">
+                <h3>HCIA-AI Exam</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/ML Specialization.png')">
+                <img src="Images/ML Specialization.png" alt="Machine Learning Specialization">
+                <h3>Machine Learning Specialization</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/AI Engineer.png')">
+                <img src="Images/AI Engineer.png" alt="AI Engineer For Data Scientists Associate">
+                <h3>AI Engineer For Data Scientists Associate</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/applied-dl.png')">
+                <img src="Images/applied-dl.png" alt="Applied Deep Learning">
+                <h3>Applied Deep Learning</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/ITI AI & Machine Learning.jpg')">
+                <img src="Images/ITI AI & Machine Learning.jpg" alt="ITI AI & Machine Learning">
+                <h3>ITI AI & Machine Learning</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/db.png')">
+                <img src="Images/db.png" alt="Database Fundmentals">
+                <h3>Database Fundamentals</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/forage.png')">
+                <img src="Images/forage.png" alt="British Airways Simulation">
+                <h3>British Airways | Data Science Simulation</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/oracle-ai.png')">
+                <img src="Images/oracle-ai.png" alt="oracle-ai">
+                <h3>Oracle Cloud Infrastructure AI Foundations</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/sprints.png')">
+                <img src="Images/sprints.png" alt="Sprints AI">
+                <h3>Sprints x Microsoft Summer Camp</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/sql-intermediate.png')">
+                <img src="Images/sql-intermediate.png" alt="SQL">
+                <h3>SQL - Intermediate Level</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/python-ibm.png')">
+                <img src="Images/python-ibm.png" alt="Python">
+                <h3>Python For AI and Data Science</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/python-ibm-badge.png')">
+                <img src="Images/python-ibm-badge.png" alt="Python Badge">
+                <h3>Python Badge</h3>
+            </div>
+            <div class="card" onclick="openImage('Images/python.png')">
+                <img src="Images/python.png" alt="Python">
+                <h3>Python Problem Solving</h3>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Skills Tab -->
-<div id="skills" class="tab-content">
-    <h2>Skills</h2>
-    <h3>Hard Skills</h3>
-    <ul>
-        <li>Python, SQL, Java</li>
-        <li>Machine Learning, Deep Learning</li>
-        <li>Computer Vision, NLP</li>
-        <li>TensorFlow, PyTorch, Scikit-learn</li>
-        <li>Data Analysis, Visualization</li>
-    </ul>
-    <h3>Soft Skills</h3>
-    <ul>
-        <li>Problem Solving</li>
-        <li>Teamwork</li>
-        <li>Time Management</li>
-        <li>Communication Skills</li>
-    </ul>
-</div>
+    <div id="skills" class="tab-content">
+        <div class="skills-section">
+            <h2>Hard Skills</h2>
+            <div class="skill">
+                <span>Python</span>
+                <div class="progress"><div style="width: 90%"></div></div>
+            </div>
+            <div class="skill">
+                <span>Machine Learning</span>
+                <div class="progress"><div style="width: 85%"></div></div>
+            </div>
+            <div class="skill">
+                <span>Data Analysis</span>
+                <div class="progress"><div style="width: 80%"></div></div>
+            </div>
+            <div class="skill">
+                <span>Deep Learning</span>
+                <div class="progress"><div style="width: 75%"></div></div>
+            </div>
+        </div>
+        <div class="skills-section">
+            <h2>Soft Skills</h2>
+            <div class="skill">
+                <span>Problem Solving</span>
+                <div class="progress"><div style="width: 90%"></div></div>
+            </div>
+            <div class="skill">
+                <span>Communication</span>
+                <div class="progress"><div style="width: 85%"></div></div>
+            </div>
+            <div class="skill">
+                <span>Teamwork</span>
+                <div class="progress"><div style="width: 80%"></div></div>
+            </div>
+            <div class="skill">
+                <span>Adaptability</span>
+                <div class="progress"><div style="width: 75%"></div></div>
+            </div>
+        </div>
+    </div>
 
-<!-- Projects Tab -->
-<div id="projects" class="tab-content">
-    <h2>Projects</h2>
-    <div class="project">
-        <h3>Marketing Campaign Classification</h3>
-        <p>Achieved 92% accuracy in predicting customer responses. Reduced training time by 25% via optimized pipelines.  
-        <strong>Tools:</strong> Python, Pandas, Scikit-learn, Matplotlib.  
-        <a href="#">GitHub Repo</a></p>
+    <div id="projects" class="tab-content">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Marketing Campaign Classification</h3>
+            <p>Purpose: Predict customer responses to marketing campaigns to optimize targeting and improve response rates.</p>
+            <p>Tools Used: Python, Pandas, Scikit-learn, Matplotlib.</p>
+            <p>Achieved 92% accuracy in predicting customer responses.<br>
+            Reduced model training time by 25% through optimized preprocessing pipelines.</p>
+            <p>GitHub Repo: <a href="https://github.com/yourusername/marketing-campaign-classification">Link</a></p>
+        </div>
+        <div class="project">
+            <h3>German Traffic Signs Classification</h3>
+            <p>Purpose: Classify different types of traffic signs to assist in autonomous driving systems and improve road safety.</p>
+            <p>Tools Used: Python, TensorFlow, Keras.</p>
+            <p>Classified 43 categories of traffic signs using a CNN model.<br>
+            Improved dataset augmentation pipeline, increasing model robustness by 20%.</p>
+            <p>GitHub Repo: <a href="https://github.com/yourusername/german-traffic-signs-classification">Link</a></p>
+        </div>
     </div>
-    <div class="project">
-        <h3>German Traffic Signs Classification</h3>
-        <p>Classified 43 categories of signs using CNN. Improved robustness by 20%.  
-        <strong>Tools:</strong> TensorFlow, OpenCV.  
-        <a href="#">GitHub Repo</a></p>
-    </div>
-    <div class="project">
-        <h3>NASA Space Apps Challenge – Seismic Detection</h3>
-        <p>Developed model handling 5,000+ data points. Reduced false positives by 15%.  
-        <strong>Tools:</strong> Python, Pandas, Sklearn.  
-        <a href="#">GitHub Repo</a></p>
-    </div>
-</div>
 
-<!-- Experience Tab -->
-<div id="experience" class="tab-content">
-    <h2>Experience</h2>
-    <p>🏆 NASA Space Apps Challenge – Participant (2024)</p>
-    <p>💼 Machine Learning Internship – XYZ Company (Remote)</p>
-</div>
+    <div id="experience" class="tab-content">
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <h3>NASA Space Apps Challenge – Seismic Detection</h3>
+            <p>Participated in the NASA Space Apps Challenge, developing a seismic event detection model handling over 5,000 data points.<br>
+            Reduced false positive rate by 15% through fine-tuning threshold metrics.<br>
+            Tools: Python, Scikit-learn, Matplotlib.</p>
+        </div>
+        <div class="experience-item">
+            <h3>British Airways Data Science Simulation</h3>
+            <p>Completed a virtual job simulation focused on data science tasks for British Airways, including web scraping, data analysis, and presentation of insights.</p>
+        </div>
+        <div class="experience-item">
+            <h3>Sprints x Microsoft Summer Camp</h3>
+            <p>Participated in AI-focused summer camp, gaining hands-on experience in machine learning and AI development through projects and workshops.</p>
+        </div>
+        <div class="experience-item">
+            <h3>ITI AI & Machine Learning Training</h3>
+            <p>Completed intensive training program in AI and Machine Learning at ITI, covering topics from basics to advanced model deployment.</p>
+        </div>
+    </div>
+</section>
 
 <!-- Popup Modal -->
 <div id="popup" class="popup" onclick="closeImage()">
     <img id="popup-img" src="" alt="">
 </div>
 
-<script src="script.js"></script>
+<script>
+    function openTab(tabName) {
+        var i;
+        var tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+        }
+        document.getElementById(tabName).classList.add("active");
+    }
+
+    function openImage(src) {
+        document.getElementById('popup-img').src = src;
+        document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closeImage() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    // Open the first tab by default
+    document.addEventListener('DOMContentLoaded', function() {
+        openTab('certificates');
+    });
+</script>
+
 </body>
 </html>
