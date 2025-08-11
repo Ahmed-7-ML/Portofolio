@@ -1,73 +1,35 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
+/* Cards Container */
+#certificates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-header {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 28px;
-}
-
-header p {
-    margin: 5px 0 0;
-    font-size: 16px;
-}
-
-section {
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-h2 {
-    border-bottom: 3px solid #2c3e50;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
+/* Card Style */
 .card {
     background: white;
     border-radius: 10px;
     overflow: hidden;
     padding: 10px;
-    margin: 15px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
-    display: inline-block;
-    width: 280px;
-    vertical-align: top;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
+/* Images */
 .card img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 200px; /* حجم ثابت للصور */
+    object-fit: cover; /* عشان الصورة تفضل متناسقة */
     border-radius: 5px;
-    transition: opacity 0.3s;
 }
 
-.card h3 {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-/* Popup Styles */
+/* Popup */
 .popup {
     display: none;
     position: fixed;
