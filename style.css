@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,46 +7,35 @@ body {
 }
 
 header {
-    background: #2c3e50;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
     color: white;
     text-align: center;
-    padding: 20px 10px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 28px;
-}
-
-header p {
-    margin: 5px 0 0;
-    font-size: 16px;
+    padding: 20px;
 }
 
 section {
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
 }
 
 h2 {
-    border-bottom: 3px solid #2c3e50;
+    border-bottom: 3px solid #3498db;
     padding-bottom: 5px;
     margin-bottom: 20px;
 }
 
-/* Certificates Grid */
-#certificates {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
-/* Card Style */
 .card {
     background: white;
     border-radius: 10px;
     overflow: hidden;
+    padding: 10px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out;
@@ -55,30 +43,65 @@ h2 {
 }
 
 .card:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
-/* Images */
 .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 2px solid #eee;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
-.card h3 {
+.skill {
+    margin-bottom: 15px;
+}
+
+.skill span {
+    font-weight: bold;
+}
+
+.progress {
+    background: #ddd;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea, button {
     padding: 10px;
-    font-size: 16px;
+    border: none;
+    border-radius: 5px;
 }
 
-/* Popup */
+button {
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2c3e50;
+}
+
 .popup {
     display: none;
     position: fixed;
     z-index: 999;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
 }
@@ -88,17 +111,13 @@ h2 {
     max-height: 90%;
     border: 5px solid white;
     border-radius: 10px;
-    animation: zoomIn 0.3s ease;
 }
 
-@keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .card img {
-        height: 180px;
-    }
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
