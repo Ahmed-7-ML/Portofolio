@@ -1,6 +1,8 @@
 function openImage(src) {
-    document.getElementById('popup').style.display = 'flex';
-    document.getElementById('popup-img').src = src;
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popup-img');
+    popup.style.display = 'flex';
+    popupImg.src = src;
 }
 
 function closeImage() {
