@@ -2,73 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ahmed Akram | Machine Learning Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Akram Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Ahmed Akram Amer</h1>
-        <p>Machine Learning Engineer | Data Scientist | AI Enthusiast</p>
-    </header>
 
-    <section>
-        <h2>Objective</h2>
-        <div class="section-content">
-            <p>Aspiring Machine Learning Engineer with hands-on experience in Python, SQL, and machine learning frameworks. Skilled in supervised and unsupervised learning, EDA, model deployment, and data visualization. Proven ability to deliver impactful ML projects with quantifiable results.</p>
-        </div>
-    </section>
+<header>
+    <h1>Ahmed Akram</h1>
+    <p>Machine Learning Engineer</p>
+</header>
 
-    <section>
-        <h2>Projects</h2>
-        <div class="section-content">
-            <ul>
-                <li>
-                    <strong>Marketing Campaign Classification</strong><br>
-                    Supervised learning model achieving 92% accuracy in predicting customer responses.<br>
-                    <a href="https://github.com/Ahmed-7-ML/MarketingCampaignClassification" target="_blank">View on GitHub</a>
-                </li>
-                <li>
-                    <strong>German Traffic Signs Classification</strong><br>
-                    Deep Learning CNN model classifying 43 types of traffic signs.<br>
-                    <a href="https://github.com/Ahmed-7-ML/GermanTrafficSignsClassification" target="_blank">View on GitHub</a>
-                </li>
-                <li>
-                    <strong>NASA Space Apps Challenge – Seismic Detection</strong><br>
-                    Developed a seismic event detection model handling over 5,000 data points.
-                </li>
-            </ul>
-        </div>
-    </section>
+<section id="about">
+    <h2>About Me</h2>
+    <p>I am a Machine Learning Engineer skilled in Python, Data Analysis, Computer Vision, and Deep Learning.</p>
+</section>
 
-    <section id="certificates">
-        <h2>Certificates</h2>
-        <div class="cert-grid">
-            <div class="cert-item">
-                <img src="images/HCIA- Course.jpg" alt="HCIA-AI Certificate">
-                <p>HCIA-AI – Huawei</p>
-            </div>
-            <div class="cert-item">
-                <img src="images/ML Specialization.png" alt="DeepLearning.ai Specialization">
-                <p>Machine Learning Specialization – DeepLearning.ai</p>
-            </div>
-            <div class="cert-item">
-                <img src="images/AI Engineer.png" alt="DataCamp AI Certificate">
-                <p>AI for Data Scientists Associate – DataCamp</p>
-            </div>
-        </div>
-    </section>
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="card" onclick="openImage('images/project1.png')">
+        <img src="images/project1.png" alt="Marketing Campaign Classification">
+        <h3>Marketing Campaign Classification</h3>
+        <p>ML model to classify campaigns based on customer behavior.</p>
+    </div>
+    <div class="card" onclick="openImage('images/project2.png')">
+        <img src="images/project2.png" alt="German Traffic Signs">
+        <h3>German Traffic Signs Classification</h3>
+        <p>Deep learning model to classify traffic signs using TensorFlow.</p>
+    </div>
+</section>
 
-    <section>
-        <h2>Contact</h2>
-        <div class="section-content">
-            <p>Email: <a href="mailto:ahmedakram3ai@gmail.com">ahmedakram3ai@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/ahmed-akram-kamel-amer" target="_blank">linkedin.com/in/ahmed-akram-kamel-amer</a></p>
-            <p>GitHub: <a href="https://github.com/Ahmed-7-ML" target="_blank">github.com/Ahmed-7-ML</a></p>
-        </div>
-    </section>
+<section id="certificates">
+    <h2>Certificates</h2>
+    <div class="card" onclick="openImage('images/hcia-ai.png')">
+        <img src="images/hcia-ai.png" alt="HCIA AI">
+        <h3>HCIA-AI</h3>
+    </div>
+    <div class="card" onclick="openImage('images/dl-specialization.png')">
+        <img src="images/dl-specialization.png" alt="Deep Learning Specialization">
+        <h3>Deep Learning Specialization</h3>
+    </div>
+</section>
 
-    <footer>
-        &copy; 2025 Ahmed Akram. All rights reserved.
-    </footer>
+<!-- Popup Modal -->
+<div id="popup" class="popup" onclick="closeImage()">
+    <img id="popup-img" src="" alt="">
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
